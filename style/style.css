@@ -170,6 +170,7 @@ body.theme3 .number-click span.eq {
 #container #calc-number {
   width: 100%;
   padding: 20px;
+  text-align: end;
   border-radius: 10px;
   border: none;
   font-size: 32px;
