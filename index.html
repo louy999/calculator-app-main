@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Calculator app</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+    <link rel="stylesheet" href="./style/style.css" />
+  </head>
+  <body class="theme3">
+    <div id="container">
+      <div class="header">
+        <h3>calc</h3>
+        <div class="theme">
+          <label for="theme">theme</label>
+          <div class="number-theme">
+            <div>
+              <span>1</span>
+              <span>2</span>
+              <span>3</span>
+            </div>
+            <input
+              type="range"
+              id="theme"
+              name="theme"
+              min="0"
+              max="2"
+              value="0"
+            />
+          </div>
+        </div>
+      </div>
+      <input type="number" name="" id="calc-number" value="5" readonly />
+      <div class="number-click">
+        <span class="one">1</span>
+        <span class="tow">2</span>
+        <span class="three">3</span>
+        <span class="four">4</span>
+        <span class="five">5</span>
+        <span class="six">6</span>
+        <span class="seven">7</span>
+        <span class="eight">8</span>
+        <span class="nine">9</span>
+        <span class="dot">.</span>
+        <span class="zero">0</span>
+        <span class="sla">/</span>
+        <span class="del">del</span>
+        <span class="pls">+</span>
+        <span class="min">-</span>
+        <span class="by">*</span>
+        <span class="reset">reset</span>
+        <span class="eq">=</span>
+      </div>
+    </div>
+
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Your Name Here</a>.
+    </div>
+  </body>
+</html>

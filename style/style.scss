@@ -1,0 +1,292 @@
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap");
+@import "./color";
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "League Spartan", sans-serif;
+}
+body {
+  &.theme1 {
+    background-color: $Very-dark-desaturated-blue-main-background;
+    .header {
+      color: $White;
+    }
+    .number-theme {
+      input {
+        background-color: $Very-dark-desaturated-blue-toggle-background-keypad-background;
+        &::-webkit-slider-thumb {
+          appearance: none;
+          background-color: $Red-key-background-toggle;
+        }
+      }
+    }
+    #calc-number {
+      background-color: $Very-dark-desaturated-blue-screen-background;
+      color: $White;
+    }
+    .number-click {
+      background-color: $Very-dark-desaturated-blue-screen-background;
+      span {
+        box-shadow: 5px 5px 5px $Desaturated-dark-blue-key-shadow;
+        color: $Desaturated-dark-blue-key-background;
+        background-color: $Light-grayish-orange-key-backgroun;
+        &.del,
+        &.reset {
+          background-color: $Desaturated-dark-blue-key-background;
+          color: $White;
+        }
+        &.eq {
+          background-color: $Red-key-background-toggle;
+          color: $White;
+        }
+      }
+    }
+  }
+  &.theme2 {
+    background-color: $Light-gray-main-background;
+    .header {
+      color: $Very-dark-grayish-yellow;
+    }
+    .number-theme {
+      input {
+        background-color: $Grayish-red-toggle-background-keypad-background;
+        &::-webkit-slider-thumb {
+          appearance: none;
+          background-color: $Orange-key-background-toggle;
+        }
+      }
+    }
+    #calc-number {
+      background-color: $Very-light-gray-screen-background;
+      color: $Very-dark-grayish-yellow;
+    }
+    .number-click {
+      background-color: $Grayish-red-toggle-background-keypad-background;
+      span {
+        box-shadow: 5px 5px 5px $Dark-grayish-orange-key-shadow;
+        color: $Very-dark-grayish-yellow;
+        background-color: $Light-grayish-yellow-key-background;
+        &.del,
+        &.reset {
+          box-shadow: 5px 5px 5px $Very-dark-cyan-key-shadow;
+          background-color: $Dark-moderate-cyan-key-background;
+          color: $White;
+        }
+        &.eq {
+          box-shadow: 5px 5px 5px $Dark-grayish-orange-key-shadow;
+          background-color: $Orange-key-background-toggle;
+          color: $White;
+        }
+      }
+    }
+  }
+  &.theme3 {
+    background-color: $Very-dark-violet-main-background;
+    .header {
+      color: $Light-yellow;
+    }
+    .number-theme {
+      input {
+        background-color: $Very-dark-violet-toggle-background-keypad-background-screen-background;
+        &::-webkit-slider-thumb {
+          appearance: none;
+          background-color: $Soft-cyan-key-shadow;
+        }
+      }
+    }
+    #calc-number {
+      background-color: $Very-dark-violet-toggle-background-keypad-background-screen-background;
+      color: $Light-yellow;
+    }
+    .number-click {
+      background-color: $Very-dark-violet-toggle-background-keypad-background-screen-background;
+      span {
+        box-shadow: 5px 5px 5px $Dark-magenta-key-shadow;
+        color: $Light-yellow;
+        background-color: $Very-dark-violet-key-background;
+        &.del,
+        &.reset {
+          box-shadow: 5px 5px 5px $Vivid-magenta-key-shadow;
+          background-color: $Dark-violet-key-background;
+          color: $White;
+        }
+        &.eq {
+          box-shadow: 5px 5px 5px $Soft-cyan-key-shadow;
+          background-color: $Pure-cyan-key-background-toggle;
+          color: $Very-dark-blue;
+        }
+      }
+    }
+  }
+}
+#container {
+  display: flex;
+  margin: 5em auto;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  flex-wrap: wrap;
+  height: 100%;
+  .header {
+    width: 100%;
+    margin-bottom: 20px;
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+    .theme {
+      display: flex;
+      align-items: center;
+      label {
+        margin-right: 20px;
+        text-transform: uppercase;
+        font-size: 15px;
+      }
+      .number-theme {
+        width: 3em;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        input {
+          appearance: none;
+          width: 100%;
+          height: 1.5em;
+          padding: 2px 2px;
+          border-radius: 10px;
+          cursor: pointer;
+          &::-webkit-slider-thumb {
+            border-radius: 50%;
+            width: 1em;
+            height: 1em;
+          }
+        }
+        > div {
+          display: flex;
+          justify-content: space-between;
+          width: 100%;
+          span {
+            font-size: 15px;
+          }
+        }
+      }
+    }
+  }
+  #calc-number {
+    width: 100%;
+    padding: 20px;
+    border-radius: 10px;
+    border: none;
+    font-size: 32px;
+    outline: none;
+    appearance: none;
+    margin-bottom: 20px;
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      appearance: none;
+      margin: 0;
+    }
+  }
+  .number-click {
+    width: 100%;
+    display: grid;
+    padding: 10px;
+    border-radius: 10px;
+    gap: 20px;
+    grid-template-columns: repeat(4, auto);
+    grid-template-rows: repeat(5, auto);
+    grid-template-areas:
+      "seven eight nine del"
+      "four five six pls"
+      "one tow three min"
+      "dot zero sla by"
+      "reset reset eq eq";
+    span {
+      padding: 15px 30px;
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      font-size: 2em;
+      align-items: center;
+      cursor: pointer;
+      opacity: 0.7;
+      &:hover {
+        opacity: 1;
+      }
+
+      &.one {
+        grid-area: one;
+      }
+      &.tow {
+        grid-area: tow;
+      }
+      &.three {
+        grid-area: three;
+      }
+      &.four {
+        grid-area: four;
+      }
+      &.five {
+        grid-area: five;
+      }
+      &.six {
+        grid-area: six;
+      }
+      &.seven {
+        grid-area: seven;
+      }
+      &.eight {
+        grid-area: eight;
+      }
+      &.nine {
+        grid-area: nine;
+      }
+      &.dot {
+        grid-area: dot;
+      }
+      &.zero {
+        grid-area: zero;
+      }
+      &.sla {
+        grid-area: sla;
+      }
+      &.del {
+        grid-area: del;
+        text-transform: uppercase;
+      }
+      &.pls {
+        grid-area: pls;
+      }
+      &.min {
+        grid-area: min;
+      }
+      &.by {
+        grid-area: by;
+      }
+      &.reset {
+        text-transform: uppercase;
+        grid-area: reset;
+      }
+      &.eq {
+        grid-area: eq;
+      }
+    }
+  }
+}
+@media (max-width: 750px) {
+  .number-click {
+    gap: 10px !important;
+    span {
+      padding: 10px 20px !important;
+      font-size: 1.5em !important;
+    }
+  }
+}
+@media (max-width: 540px) {
+  .number-click {
+    gap: 5px !important;
+    span {
+      padding: 10px 10px !important;
+      font-size: 1em !important;
+    }
+  }
+}
