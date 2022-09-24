@@ -2,7 +2,17 @@ var clickOnNumber = document.querySelectorAll(".number-click span");
 var screenCalc = document.querySelector("#calc-number");
 clickOnNumber.forEach(function (num) {
     num.addEventListener("click", function () {
-        screenCalc.value += num.innerHTML;
+        if (num.classList[0] === "del") {
+            var re = Array.from(screenCalc.value);
+            re.pop();
+            screenCalc.value = re.join("");
+        }
+        else if (num.classList[0] === "reset") {
+            screenCalc.value = "";
+        }
+        else {
+            screenCalc.value += num.innerHTML;
+        }
     });
 });
 document.addEventListener("keydown", function (e) {
@@ -10,20 +20,20 @@ document.addEventListener("keydown", function (e) {
     var remarkS = ["/", "*", "-", "+", "."];
     numS.forEach(function (num) {
         if (num === +e.key) {
-            //   screenCalc.value += num.toLocaleString("en-Us");
+            screenCalc.value += num;
         }
         else {
             return;
         }
     });
-    remarkS.forEach(function (mark) {
-        if (mark === e.key) {
-            screenCalc.value += mark;
-            mark = mark.toLocaleString("en-Us");
-        }
-        else {
-            return;
-        }
-    });
-    // , "Backspace", "Enter"
+    remarkS.forEach(function (mark) { });
+    if (e.key === "Backspace") {
+        var re = Array.from(screenCalc.value);
+        re.pop();
+        screenCalc.value = re.join("");
+    }
+    if (e.key === "Enter") {
+        // screenCalc.value = `${+screenCalc.value}`;
+        console.log(Number(screenCalc.value));
+    }
 });

@@ -2,7 +2,15 @@ let clickOnNumber = document.querySelectorAll(".number-click span");
 let screenCalc = document.querySelector("#calc-number") as HTMLInputElement;
 clickOnNumber.forEach((num) => {
   num.addEventListener("click", () => {
-    screenCalc.value += num.innerHTML;
+    if (num.classList[0] === "del") {
+      let re = Array.from(screenCalc.value);
+      re.pop();
+      screenCalc.value = re.join("");
+    } else if (num.classList[0] === "reset") {
+      screenCalc.value = "";
+    } else {
+      screenCalc.value += num.innerHTML;
+    }
   });
 });
 document.addEventListener("keydown", (e) => {
@@ -10,18 +18,19 @@ document.addEventListener("keydown", (e) => {
   let remarkS: any = ["/", "*", "-", "+", "."];
   numS.forEach((num) => {
     if (num === +e.key) {
-      //   screenCalc.value += num.toLocaleString("en-Us");
+      screenCalc.value += num;
     } else {
       return;
     }
   });
-  remarkS.forEach((mark) => {
-    if (mark === e.key) {
-      screenCalc.value += mark;
-      mark = mark.toLocaleString("en-Us");
-    } else {
-      return;
-    }
-  });
-  // , "Backspace", "Enter"
+  remarkS.forEach((mark) => {});
+  if (e.key === "Backspace") {
+    let re = Array.from(screenCalc.value);
+    re.pop();
+    screenCalc.value = re.join("");
+  }
+  if (e.key === "Enter") {
+    // screenCalc.value = `${+screenCalc.value}`;
+    console.log(Number(screenCalc.value));
+  }
 });

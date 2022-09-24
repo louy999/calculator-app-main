@@ -166,6 +166,7 @@ body.theme3 .number-click span.eq {
 }
 #container .header .theme .number-theme > div span {
   font-size: 15px;
+  cursor: pointer;
 }
 #container #calc-number {
   width: 100%;
